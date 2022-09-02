@@ -18,16 +18,16 @@
               <div class="card" style="width: 18rem;">
                 <img src="{{asset('img/movielogo.jpg')}}" class="card-img-top" alt="Movie">
                   <div class="card-body">
-            <h5 class="card-title">{{$movie->moviename}}
-              <br>Release date: {{$movie->releasedate}}
+            <h5 class="card-title">{{$movie->moviename}}</h5>
+            <p> <br>Release date: {{$movie->releasedate}}
               <br> Production: {{$movie->productioncompany}}
               <br> MovieTime: {{$movie->movietime}}
               <br> Actor: {{$movie->actor}}
               <br> Actress: {{$movie->actress}}
               <br> Industry: {{$movie->industry}}
-            </h5>
+            <p>
                      
-            <a href="#" class="btn btn-primary">Book Now</a>
+            <a href="#" class="btn btn-primary">Details</a>
           </div>
         </div>
       </div>
