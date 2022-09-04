@@ -9,25 +9,19 @@
     <link rel="stylesheet" href="{{asset('css/home.css')}}">
     <h1> MOVIE CARD </h1>
 </head>
-<body>
-        
-        <div class="container">
-          <div class="row">
-          @foreach($movies as $key => $movie)
-            <div class="col-sm">
-              <div class="card" style="width: 18rem;">
-                <img src="{{asset('img/movielogo.jpg')}}" class="card-img-top" alt="Movie">
-                  <div class="card-body">
+<body> 
+ <div class="container">
+   <div class="row">
+      @foreach($movies as $key => $movie)
+       <div class="col-sm">
+         <div class="card" style="width: 18rem;">
+            <img src="{{asset('img/movielogo.jpg')}}" class="card-img-top" alt="Movie">
+              <div class="card-body">
             <h5 class="card-title">{{$movie->moviename}}</h5>
-            <p> <br>Release date: {{$movie->releasedate}}
-              <br> Production: {{$movie->productioncompany}}
-              <br> MovieTime: {{$movie->movietime}}
-              <br> Actor: {{$movie->actor}}
-              <br> Actress: {{$movie->actress}}
-              <br> Industry: {{$movie->industry}}
-            <p>
+            <p> <br>Release date: {{$movie->releasedate}}</p>
                      
-            <a href="#" class="btn btn-primary">Details</a>
+            <a href="{{route('show',$movie->id)}}" class="btn btn-primary">Details</a>
+            <a href="{{route('edit',$movie->id)}}" class="btn btn-primary">Edit</a>
           </div>
         </div>
       </div>

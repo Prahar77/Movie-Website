@@ -16,5 +16,6 @@ class movie extends Model
         'actor',
         'actress',
         'industry',
+        'description',
     ];
 }

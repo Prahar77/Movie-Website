@@ -26,8 +26,16 @@ Route::get('/home', function () {
     return view('home');
 });
 
+Route::get('/detail', function () {
+    return view('detail');
+});
+
 Route::get('/project/create', 'App\Http\Controllers\ProjectController@create');
 Route::post('/project/store', 'App\Http\Controllers\ProjectController@store')->name('store');
 
 Route::get('/project/index', 'App\Http\Controllers\ProjectController@index')->name('index');
 
+Route::get('/project/show/{id}', 'App\Http\Controllers\ProjectController@show')->name('show');
+
+Route::get('/project/edit/{id}', 'App\Http\Controllers\ProjectController@edit')->name('edit');
+Route::post('/project/update/{id}', 'App\Http\Controllers\ProjectController@update')->name('update');

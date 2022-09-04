@@ -11,9 +11,10 @@
 </head>
 
     <body>
-    <h1> Indian Movie Entry </h1>
+    <h1>Edit Movie Details</h1>
         <section>
-        <form class="row g-3" method="post" action="{{route('store')}}">
+        <form class="row g-3" method="post" action="{{route('update',$movie->id)}}">
+            <input type="hidden" name="method" value="PUT">
         @csrf
         <div class="block"></block>
         <!-- <div></div> -->
@@ -21,15 +22,15 @@
         <div class= "formfont">
         <div class="col-md-12">
             <label for="moviename" class="form-label">Movie Name</label>
-            <input type="text" class="form-control" id="moviename" name="moviename">
+            <input type="text" class="form-control" id="moviename" name="moviename" value="{{$movie->moviename}}">
         </div>
         <div class="col-md-12">
             <label for="releasedate" class="form-label">Release Date</label>
-            <input type="date" class="form-control" id="releasedate" name= "releasedate">
+            <input type="date" class="form-control" id="releasedate" name= "releasedate" >
         </div>
         <div class="col-12">
             <label for="productioncompany" class="form-label">Production company</label>
-            <input type="text" class="form-control" id="productioncompany" name= "productioncompany">
+            <input type="text" class="form-control" id="productioncompany" name= "productioncompany" value="">
         </div>
         <div class="col-12">
             <label for="movietime" class="form-label">Movie time</label>
@@ -53,19 +54,16 @@
             <option>Kannada</option>
             </select>
         </div>
-            
         <div class="col">
             <label for="description" class="form-label">Description</label>
             <textarea class="form-control" id="description" name="description" maxlength="500"></textarea>           
         </div>
-
+        <br>
         </fieldset>
         <div class="col-12">
             <button type="submit" class="btn btn-primary">Submit</button>
-            <br>
             </div>
         </div>
-        
         </form>
         </section>
         

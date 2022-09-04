@@ -42,10 +42,11 @@ class Projectcontroller extends Controller
             'moviename' => $request->moviename,
             'releasedate' => $request->releasedate,
             'productioncompany' => $request->productioncompany,
-            'movietime' => date('H:i:s', strtotime($request->movietime)),
+            'movietime' => $request->movietime,
             'actor' => $request->actor,
             'actress' => $request->actress,
             'industry' => $request->industry,
+            'description' => $request->description,
                          
         ]);
         return redirect()->route('index');
@@ -59,7 +60,10 @@ class Projectcontroller extends Controller
      */
     public function show($id)
     {
-        //
+        //$movies = Movie::latest()->get();
+        //return view('details',compact('movies'));
+        $movie = Movie::find($id);
+        return view ('detail',compact('movie'));
     }
 
     /**
@@ -70,7 +74,9 @@ class Projectcontroller extends Controller
      */
     public function edit($id)
     {
-        // 
+        $movie = Movie::find($id);
+        
+        return view('edit',compact('movie')); 
     }
 
     /**
@@ -82,7 +88,29 @@ class Projectcontroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $movie = Movie::find($id);
+        $movie->update([
+            'moviename' => $request->moviename,
+            'releasedate' => $request->releasedate,
+            'productioncompany' => $request->productioncompany,
+            'movietime' => $request->movietime,
+            'actor' => $request->actor,
+            'actress' => $request->actress,
+            'industry' => $request->industry,
+            'description' => $request->description,
+        ]);
+        // Movie::update([
+        //     'moviename' => $request->moviename,
+        //     'releasedate' => $request->releasedate,
+        //     'productioncompany' => $request->productioncompany,
+        //     'movietime' => $request->movietime,
+        //     'actor' => $request->actor,
+        //     'actress' => $request->actress,
+        //     'industry' => $request->industry,
+        //     'description' => $request->description,
+                         
+        // ]);
+        return redirect()->route('index');
     }
 
     /**
